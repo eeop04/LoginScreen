@@ -84,30 +84,23 @@ namespace LoginScreen
 
         private void btnPWshowhide_Click_1(object sender, EventArgs e)
         {
-            // Placeholder(안내문구)일 때는 동작하지 않음
             if (txtPW.Text == "패스워드") return;
 
-            // UseSystemPasswordChar 값이 true(숨김)라면 false(표시)로, false면 true로 전환합니다.
             txtPW.UseSystemPasswordChar = !txtPW.UseSystemPasswordChar;
 
-            // 포커스가 버튼으로 이동하는 것을 막고 입력창에 유지
             txtPW.Focus();
         }
 
         private void btnTXTClear_Click(object sender, EventArgs e)
         {
-            // 1. 텍스트 박스 초기화 (안의 글자 모두 지우기)
             txtID.Text = "";
             txtPW.Text = "";
 
-            // 2. 입력란이 비었을 때 "아이디", "패스워드" 안내문구(Placeholder)를 다시 띄워주는 기존 기능 재활용
             txtID_Leave(null, EventArgs.Empty);
             txtPW_Leave(null, EventArgs.Empty);
 
-            // 3. 에러 메시지도 혹시 켜져있다면 숨기기 (선택사항)
             lblErrorMsg.Visible = false;
 
-            // 4. 다시 아이디 입력란으로 커서(포커스) 옮기기
             txtID.Focus();
         }
     }

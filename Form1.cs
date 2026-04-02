@@ -9,7 +9,7 @@ namespace LoginScreen
             InitializeComponent();
             lblErrorMsg.Visible = false;
         }
-
+         
         private void txtID_Enter(object sender, EventArgs e)
         {
             if (txtID.Text == "아이디")

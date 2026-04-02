@@ -33,6 +33,8 @@
             txtPW = new TextBox();
             btnLogin = new Button();
             lblErrorMsg = new Label();
+            btnPWshowhide = new Button();
+            btnTXTClear = new Button();
             SuspendLayout();
             // 
             // lblAppName
@@ -91,8 +93,28 @@
             lblErrorMsg.Location = new Point(122, 307);
             lblErrorMsg.Name = "lblErrorMsg";
             lblErrorMsg.Size = new Size(268, 20);
-            lblErrorMsg.TabIndex = 4;
+            lblErrorMsg.TabIndex = 0;
             lblErrorMsg.Text = "아이디/비밀번호를 다시 입력해주세요.";
+            // 
+            // btnPWshowhide
+            // 
+            btnPWshowhide.Location = new Point(610, 249);
+            btnPWshowhide.Name = "btnPWshowhide";
+            btnPWshowhide.Size = new Size(48, 29);
+            btnPWshowhide.TabIndex = 4;
+            btnPWshowhide.Text = "@";
+            btnPWshowhide.UseVisualStyleBackColor = true;
+            btnPWshowhide.Click += btnPWshowhide_Click_1;
+            // 
+            // btnTXTClear
+            // 
+            btnTXTClear.Location = new Point(122, 355);
+            btnTXTClear.Name = "btnTXTClear";
+            btnTXTClear.Size = new Size(94, 29);
+            btnTXTClear.TabIndex = 5;
+            btnTXTClear.Text = "CLEAR";
+            btnTXTClear.UseVisualStyleBackColor = true;
+            btnTXTClear.Click += btnTXTClear_Click;
             // 
             // LoginScreen
             // 
@@ -100,6 +122,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnTXTClear);
+            Controls.Add(btnPWshowhide);
             Controls.Add(lblErrorMsg);
             Controls.Add(btnLogin);
             Controls.Add(txtPW);
@@ -118,5 +142,7 @@
         private TextBox txtPW;
         private Button btnLogin;
         private Label lblErrorMsg;
+        private Button btnPWshowhide;
+        private Button btnTXTClear;
     }
 }

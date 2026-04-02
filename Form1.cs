@@ -7,6 +7,7 @@ namespace LoginScreen
         public LoginScreen()
         {
             InitializeComponent();
+            lblErrorMsg.Visible = false;
         }
 
         private void txtID_Enter(object sender, EventArgs e)
@@ -50,14 +51,35 @@ namespace LoginScreen
         {
             string inputID = txtID.Text;
             string inputPW = txtPW.Text;
+
             if (inputID == myID && inputPW == myPW)
             {
-                MessageBox.Show("로그인 되었습니다.");
+                MessageBox.Show("로그인 되었습니다.", "로그인", MessageBoxButtons.OK);
+                lblErrorMsg.Visible = false;
             }
             else
             {
-                MessageBox.Show("아이디/패스워드를 다시 입력해주세요.");
+                //MessageBox.Show("아이디/패스워드를 다시 입력해주세요.", "로그인", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblErrorMsg.Visible = true;
             }
         }
-    }
+
+        private void txtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본 비프음 방지 - 이거 띵 띵 소리 방지하려고 한거
+                txtPW.Focus(); // 패스워드 입력창이 포커스를 갖게끔
+            }
+        }
+
+        private void txtPW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // 기본 비프음 방지
+                btnLogin.PerformClick(); // 버튼이 눌린 것처럼 만들기}
+            }
+        }
+     }
 }

@@ -32,6 +32,7 @@
             txtID = new TextBox();
             txtPW = new TextBox();
             btnLogin = new Button();
+            lblErrorMsg = new Label();
             SuspendLayout();
             // 
             // lblAppName
@@ -54,6 +55,7 @@
             txtID.TabIndex = 2;
             txtID.Text = "아이디";
             txtID.Enter += txtID_Enter;
+            txtID.KeyDown += txtID_KeyDown;
             txtID.Leave += txtID_Leave;
             // 
             // txtPW
@@ -66,6 +68,7 @@
             txtPW.TabIndex = 3;
             txtPW.Text = "패스워드";
             txtPW.Enter += txtPW_Enter;
+            txtPW.KeyDown += txtPW_KeyDown;
             txtPW.Leave += txtPW_Leave;
             // 
             // btnLogin
@@ -81,12 +84,23 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
+            // lblErrorMsg
+            // 
+            lblErrorMsg.AutoSize = true;
+            lblErrorMsg.ForeColor = Color.Red;
+            lblErrorMsg.Location = new Point(122, 307);
+            lblErrorMsg.Name = "lblErrorMsg";
+            lblErrorMsg.Size = new Size(268, 20);
+            lblErrorMsg.TabIndex = 4;
+            lblErrorMsg.Text = "아이디/비밀번호를 다시 입력해주세요.";
+            // 
             // LoginScreen
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblErrorMsg);
             Controls.Add(btnLogin);
             Controls.Add(txtPW);
             Controls.Add(txtID);
@@ -103,5 +117,6 @@
         private TextBox txtID;
         private TextBox txtPW;
         private Button btnLogin;
+        private Label lblErrorMsg;
     }
 }
